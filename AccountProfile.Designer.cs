@@ -1,4 +1,4 @@
-﻿namespace QuanLyQuanAn_FINAL
+﻿namespace QuanLyQuanAn_FINAL.DAO
 {
     partial class fAccountProfile
     {
@@ -75,6 +75,7 @@
             this.btnUpdate.TabIndex = 22;
             this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // txbRepeatPass
             // 

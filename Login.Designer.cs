@@ -1,6 +1,6 @@
-﻿namespace QuanLyQuanAn_FINAL
+﻿namespace QuanLyQuanAn_FINAL.DAO
 {
-    partial class Login
+    partial class fLogin
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fLogin));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -37,6 +37,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnExit = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.cbRemember = new System.Windows.Forms.CheckBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
@@ -142,6 +143,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnExit);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.cbRemember);
             this.panel2.Controls.Add(this.linkLabel1);
@@ -157,6 +159,19 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(474, 607);
             this.panel2.TabIndex = 1;
+            // 
+            // btnExit
+            // 
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.ForeColor = System.Drawing.Color.IndianRed;
+            this.btnExit.Location = new System.Drawing.Point(219, 346);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(148, 35);
+            this.btnExit.TabIndex = 10;
+            this.btnExit.Text = "Thoát";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // label9
             // 
@@ -260,7 +275,6 @@
             this.txtPassword.Size = new System.Drawing.Size(429, 25);
             this.txtPassword.TabIndex = 2;
             this.txtPassword.UseSystemPasswordChar = true;
-            this.txtPassword.Click += new System.EventHandler(this.txtPassword_Click);
             // 
             // pictureBox3
             // 
@@ -270,8 +284,6 @@
             this.pictureBox3.Size = new System.Drawing.Size(24, 24);
             this.pictureBox3.TabIndex = 1;
             this.pictureBox3.TabStop = false;
-            this.pictureBox3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox3_MouseDown);
-            this.pictureBox3.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox3_MouseUp);
             // 
             // panel3
             // 
@@ -292,7 +304,6 @@
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(429, 25);
             this.txtUserName.TabIndex = 1;
-            this.txtUserName.Click += new System.EventHandler(this.txtUserName_Click);
             // 
             // pictureBox2
             // 
@@ -316,9 +327,9 @@
             this.btnClose.TabIndex = 0;
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+//            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // Login
+            // fLogin
             // 
             this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -328,11 +339,9 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Login";
+            this.Name = "fLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Login_FormClosing);
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -372,6 +381,7 @@
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.CheckBox cbRemember;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btnExit;
     }
 }
 

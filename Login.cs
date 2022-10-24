@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyQuanAn_FINAL.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,81 +8,51 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Drawing;
-//
-namespace QuanLyQuanAn_FINAL
+
+namespace QuanLyQuanAn_FINAL.DAO
 {
-    public partial class Login : Form
+    public partial class fLogin : Form
     {
-        public Login()
+        public fLogin()
         {
             InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            if (Properties.Settings.Default.UserName != string.Empty)
-            {
-                txtUserName.Text = Properties.Settings.Default.UserName;
-                txtPassword.Text = Properties.Settings.Default.PassWord;
-            }
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void txtUserName_Click(object sender, EventArgs e)
-        {
-            txtUserName.BackColor = Color.White;
-            panel3.BackColor = Color.White;
-            panel4.BackColor = SystemColors.Control;
-            txtPassword.BackColor = SystemColors.Control;
-        }
-
-        private void txtPassword_Click(object sender, EventArgs e)
-        {
-            txtPassword.BackColor = Color.White;
-            panel4.BackColor = Color.White;
-            txtUserName.BackColor = SystemColors.Control;
-            panel3.BackColor = SystemColors.Control;
-        }
-
-        private void pictureBox3_MouseDown(object sender, MouseEventArgs e)
-        {
-            txtPassword.UseSystemPasswordChar = false;
-        }
-
-        private void pictureBox3_MouseUp(object sender, MouseEventArgs e)
-        {
-            txtPassword.UseSystemPasswordChar = true;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string userName = txtUserName.Text;
             string passWord = txtPassword.Text;
-
-            fMain fMain = new fMain();
-            this.Hide();
-            fMain.ShowDialog();
-            this.Show();
-
-            if (cbRemember.Checked)
+            if (Login(userName, passWord))
             {
-                Properties.Settings.Default.UserName = txtUserName.Text;
-                Properties.Settings.Default.PassWord = txtPassword.Text;
-                Properties.Settings.Default.Save();
+                Account loginAccount = AccountDAO.Instance.GetAccountByUserName(userName);
+                TableManager f = new TableManager(loginAccount);
+                this.Hide();
+                f.ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                MessageBox.Show("Sai tên tài khoản hoặc mật khẩu!");
             }
         }
 
-        private void Login_FormClosing(object sender, FormClosingEventArgs e)
+        bool Login(string userName, string passWord)
         {
-            if (MessageBox.Show("Bạn có muốn thoát chương trình?", "Thông báo", MessageBoxButtons.YesNo) != System.Windows.Forms.DialogResult.Yes)
+            return AccountDAO.Instance.Login(userName, passWord);
+        }
+
+        private void fLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Thoát chương trình?", "Thông báo", MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
             {
                 e.Cancel = true;
             }
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+     
     }
 }
