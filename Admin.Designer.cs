@@ -39,7 +39,6 @@
             this.btnUpdateFood = new System.Windows.Forms.Button();
             this.btnDeleteFood = new System.Windows.Forms.Button();
             this.btnAddFood = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -98,6 +97,7 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvBill = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tpMenu.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -171,12 +171,12 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.nmPrice);
             this.panel1.Controls.Add(this.cbCategory);
             this.panel1.Controls.Add(this.btnUpdateFood);
             this.panel1.Controls.Add(this.btnDeleteFood);
             this.panel1.Controls.Add(this.btnAddFood);
-            this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
@@ -219,6 +219,7 @@
             this.btnUpdateFood.TabIndex = 13;
             this.btnUpdateFood.Text = "Sửa";
             this.btnUpdateFood.UseVisualStyleBackColor = true;
+            this.btnUpdateFood.Click += new System.EventHandler(this.btnUpdateFood_Click);
             // 
             // btnDeleteFood
             // 
@@ -229,6 +230,7 @@
             this.btnDeleteFood.TabIndex = 12;
             this.btnDeleteFood.Text = "Xóa";
             this.btnDeleteFood.UseVisualStyleBackColor = true;
+            this.btnDeleteFood.Click += new System.EventHandler(this.btnDeleteFood_Click);
             // 
             // btnAddFood
             // 
@@ -239,16 +241,7 @@
             this.btnAddFood.TabIndex = 11;
             this.btnAddFood.Text = "Thêm";
             this.btnAddFood.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(35, 194);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(82, 20);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "Tìm kiếm:";
+            this.btnAddFood.Click += new System.EventHandler(this.btnAddFood_Click);
             // 
             // label6
             // 
@@ -303,13 +296,15 @@
             this.txbID.Name = "txbID";
             this.txbID.Size = new System.Drawing.Size(189, 22);
             this.txbID.TabIndex = 2;
+            this.txbID.TextChanged += new System.EventHandler(this.txbID_TextChanged);
             // 
             // txbSearching
             // 
-            this.txbSearching.Location = new System.Drawing.Point(149, 192);
+            this.txbSearching.Location = new System.Drawing.Point(16, 182);
             this.txbSearching.Name = "txbSearching";
             this.txbSearching.Size = new System.Drawing.Size(189, 22);
             this.txbSearching.TabIndex = 1;
+            this.txbSearching.TextChanged += new System.EventHandler(this.txbSearching_TextChanged);
             // 
             // pictureBox1
             // 
@@ -821,6 +816,17 @@
             this.dgvBill.Size = new System.Drawing.Size(976, 455);
             this.dgvBill.TabIndex = 0;
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(222, 178);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(94, 31);
+            this.button1.TabIndex = 17;
+            this.button1.Text = "Tìm";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // fAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -830,7 +836,6 @@
             this.Name = "fAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin";
-            //            this.Load += new System.EventHandler(this.fAdmin_Load);
             this.tabControl1.ResumeLayout(false);
             this.tpMenu.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
@@ -886,7 +891,6 @@
         private System.Windows.Forms.Button btnUpdateFood;
         private System.Windows.Forms.Button btnDeleteFood;
         private System.Windows.Forms.Button btnAddFood;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -935,5 +939,6 @@
         private System.Windows.Forms.DataGridView dgvAccount;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Button button1;
     }
 }

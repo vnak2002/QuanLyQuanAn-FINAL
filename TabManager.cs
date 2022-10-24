@@ -141,7 +141,38 @@ namespace QuanLyQuanAn_FINAL.DAO
         private void adminToolStripMenuItem_Click(object sender, EventArgs e)
         {
             fAdmin f = new fAdmin();
+            f.InsertFood += F_InsertFood;
+            f.DeleteFood += F_DeleteFood;
+            f.UpdateFood += F_UpdateFood;
             f.ShowDialog();
+        }
+
+        private void F_UpdateFood(object sender, EventArgs e)
+        {
+            LoadFoodListByCategoryID((cbCategory.SelectedItem as Category).ID);
+            if (lsvBill.Tag != null)
+            {
+                ShowBill((lsvBill.Tag as Table).ID);
+            }
+        }
+
+        private void F_DeleteFood(object sender, EventArgs e)
+        {
+            LoadFoodListByCategoryID((cbCategory.SelectedItem as Category).ID);
+            if (lsvBill.Tag != null)
+            {
+                ShowBill((lsvBill.Tag as Table).ID);
+            }
+            LoadTable();
+        }
+
+        private void F_InsertFood(object sender, EventArgs e)
+        {
+            LoadFoodListByCategoryID((cbCategory.SelectedItem as Category).ID);
+            if (lsvBill.Tag != null)
+            {
+                ShowBill((lsvBill.Tag as Table).ID);
+            }
         }
 
         private void cbCategory_SelectedIndexChanged(object sender, EventArgs e)
@@ -189,6 +220,11 @@ namespace QuanLyQuanAn_FINAL.DAO
         private void btnOrder_Click(object sender, EventArgs e)
         {
             Table table = lsvBill.Tag as Table;
+            if (table == null)
+            {
+                MessageBox.Show("chưa chọn bàn");
+                return;
+            }
 
             int idBill = BillDAO.Instance.GetUncheckBillIDByTableID(table.ID);
             int foodID = (cbFood.SelectedItem as Food).ID;
@@ -214,12 +250,14 @@ namespace QuanLyQuanAn_FINAL.DAO
             int id1 = (lsvBill.Tag as Table).ID;
 
             int id2 = (cbTable.SelectedItem as Table).ID;
-            if (MessageBox.Show(string.Format("Bạn có thật sự muốn chuyển bàn {0} qua bàn {1}", (lsvBill.Tag as Table).Name, (cbTable.SelectedItem as Table).Name), "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+            if (MessageBox.Show(string.Format("Chuyển bàn {0} qua bàn {1}?", (lsvBill.Tag as Table).Name, (cbTable.SelectedItem as Table).Name), "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
             {
                 TableDAO.Instance.SwitchTable(id1, id2);
 
                 LoadTable();
             }
         }
+
+
     }
 }
