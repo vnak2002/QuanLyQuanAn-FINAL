@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fAdmin));
+            this.USP_GetListBillByDateForReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpMenu = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dgvFood = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.nmPrice = new System.Windows.Forms.NumericUpDown();
             this.cbCategory = new System.Windows.Forms.ComboBox();
             this.btnUpdateFood = new System.Windows.Forms.Button();
@@ -61,8 +64,6 @@
             this.dgvCategory = new System.Windows.Forms.DataGridView();
             this.tpTable = new System.Windows.Forms.TabPage();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.cbStatus = new System.Windows.Forms.ComboBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.btnAddTable = new System.Windows.Forms.Button();
             this.btnUpdateTable = new System.Windows.Forms.Button();
             this.btnDeleteTable = new System.Windows.Forms.Button();
@@ -97,7 +98,8 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvBill = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            ((System.ComponentModel.ISupportInitialize)(this.USP_GetListBillByDateForReportBindingSource)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tpMenu.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -124,6 +126,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvBill)).BeginInit();
             this.SuspendLayout();
             // 
+            // USP_GetListBillByDateForReportBindingSource
+            // 
+            this.USP_GetListBillByDateForReportBindingSource.DataMember = "USP_GetListBillByDateForReport";
+            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tpMenu);
@@ -131,11 +137,12 @@
             this.tabControl1.Controls.Add(this.tpTable);
             this.tabControl1.Controls.Add(this.tpAccount);
             this.tabControl1.Controls.Add(this.tpBill);
+            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(999, 563);
+            this.tabControl1.Size = new System.Drawing.Size(996, 558);
             this.tabControl1.TabIndex = 0;
             // 
             // tpMenu
@@ -145,7 +152,7 @@
             this.tpMenu.Location = new System.Drawing.Point(4, 25);
             this.tpMenu.Name = "tpMenu";
             this.tpMenu.Padding = new System.Windows.Forms.Padding(3);
-            this.tpMenu.Size = new System.Drawing.Size(991, 534);
+            this.tpMenu.Size = new System.Drawing.Size(988, 529);
             this.tpMenu.TabIndex = 0;
             this.tpMenu.Text = "Thực đơn";
             this.tpMenu.UseVisualStyleBackColor = true;
@@ -189,6 +196,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(437, 520);
             this.panel1.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(222, 178);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(94, 31);
+            this.button1.TabIndex = 17;
+            this.button1.Text = "Tìm";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // nmPrice
             // 
@@ -323,7 +341,7 @@
             this.tpCategory.Location = new System.Drawing.Point(4, 25);
             this.tpCategory.Name = "tpCategory";
             this.tpCategory.Padding = new System.Windows.Forms.Padding(3);
-            this.tpCategory.Size = new System.Drawing.Size(991, 534);
+            this.tpCategory.Size = new System.Drawing.Size(988, 529);
             this.tpCategory.TabIndex = 1;
             this.tpCategory.Text = "Danh mục";
             this.tpCategory.UseVisualStyleBackColor = true;
@@ -352,6 +370,7 @@
             this.btnAddCategory.TabIndex = 20;
             this.btnAddCategory.Text = "Thêm";
             this.btnAddCategory.UseVisualStyleBackColor = true;
+            this.btnAddCategory.Click += new System.EventHandler(this.btnAddCategory_Click);
             // 
             // btnUpdateCategory
             // 
@@ -362,6 +381,7 @@
             this.btnUpdateCategory.TabIndex = 22;
             this.btnUpdateCategory.Text = "Sửa";
             this.btnUpdateCategory.UseVisualStyleBackColor = true;
+            this.btnUpdateCategory.Click += new System.EventHandler(this.btnUpdateCategory_Click);
             // 
             // label9
             // 
@@ -389,6 +409,7 @@
             this.btnDeleteCategory.TabIndex = 21;
             this.btnDeleteCategory.Text = "Xóa";
             this.btnDeleteCategory.UseVisualStyleBackColor = true;
+            this.btnDeleteCategory.Click += new System.EventHandler(this.btnDeleteCategory_Click);
             // 
             // label10
             // 
@@ -443,15 +464,13 @@
             this.tpTable.Location = new System.Drawing.Point(4, 25);
             this.tpTable.Name = "tpTable";
             this.tpTable.Padding = new System.Windows.Forms.Padding(3);
-            this.tpTable.Size = new System.Drawing.Size(991, 534);
+            this.tpTable.Size = new System.Drawing.Size(988, 529);
             this.tpTable.TabIndex = 2;
             this.tpTable.Text = "Bàn";
             this.tpTable.UseVisualStyleBackColor = true;
             // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.cbStatus);
-            this.panel8.Controls.Add(this.label14);
             this.panel8.Controls.Add(this.btnAddTable);
             this.panel8.Controls.Add(this.btnUpdateTable);
             this.panel8.Controls.Add(this.btnDeleteTable);
@@ -465,59 +484,44 @@
             this.panel8.Size = new System.Drawing.Size(435, 520);
             this.panel8.TabIndex = 1;
             // 
-            // cbStatus
-            // 
-            this.cbStatus.FormattingEnabled = true;
-            this.cbStatus.Location = new System.Drawing.Point(185, 355);
-            this.cbStatus.Name = "cbStatus";
-            this.cbStatus.Size = new System.Drawing.Size(211, 24);
-            this.cbStatus.TabIndex = 27;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(41, 360);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(89, 20);
-            this.label14.TabIndex = 26;
-            this.label14.Text = "Trạng thái:";
-            // 
             // btnAddTable
             // 
             this.btnAddTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddTable.Location = new System.Drawing.Point(60, 428);
+            this.btnAddTable.Location = new System.Drawing.Point(45, 393);
             this.btnAddTable.Name = "btnAddTable";
             this.btnAddTable.Size = new System.Drawing.Size(90, 66);
             this.btnAddTable.TabIndex = 23;
             this.btnAddTable.Text = "Thêm";
             this.btnAddTable.UseVisualStyleBackColor = true;
+            this.btnAddTable.Click += new System.EventHandler(this.btnAddTable_Click);
             // 
             // btnUpdateTable
             // 
             this.btnUpdateTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateTable.Location = new System.Drawing.Point(306, 428);
+            this.btnUpdateTable.Location = new System.Drawing.Point(306, 393);
             this.btnUpdateTable.Name = "btnUpdateTable";
             this.btnUpdateTable.Size = new System.Drawing.Size(90, 66);
             this.btnUpdateTable.TabIndex = 25;
             this.btnUpdateTable.Text = "Sửa";
             this.btnUpdateTable.UseVisualStyleBackColor = true;
+            this.btnUpdateTable.Click += new System.EventHandler(this.btnUpdateTable_Click);
             // 
             // btnDeleteTable
             // 
             this.btnDeleteTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteTable.Location = new System.Drawing.Point(185, 428);
+            this.btnDeleteTable.Location = new System.Drawing.Point(185, 393);
             this.btnDeleteTable.Name = "btnDeleteTable";
             this.btnDeleteTable.Size = new System.Drawing.Size(90, 66);
             this.btnDeleteTable.TabIndex = 24;
             this.btnDeleteTable.Text = "Xóa";
             this.btnDeleteTable.UseVisualStyleBackColor = true;
+            this.btnDeleteTable.Click += new System.EventHandler(this.btnDeleteTable_Click);
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(41, 302);
+            this.label12.Location = new System.Drawing.Point(41, 318);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(69, 20);
             this.label12.TabIndex = 19;
@@ -525,8 +529,9 @@
             // 
             // txbIDTable
             // 
-            this.txbIDTable.Location = new System.Drawing.Point(185, 300);
+            this.txbIDTable.Location = new System.Drawing.Point(185, 318);
             this.txbIDTable.Name = "txbIDTable";
+            this.txbIDTable.ReadOnly = true;
             this.txbIDTable.Size = new System.Drawing.Size(211, 22);
             this.txbIDTable.TabIndex = 18;
             // 
@@ -583,7 +588,7 @@
             this.tpAccount.Location = new System.Drawing.Point(4, 25);
             this.tpAccount.Name = "tpAccount";
             this.tpAccount.Padding = new System.Windows.Forms.Padding(3);
-            this.tpAccount.Size = new System.Drawing.Size(991, 534);
+            this.tpAccount.Size = new System.Drawing.Size(988, 529);
             this.tpAccount.TabIndex = 3;
             this.tpAccount.Text = "Quản lý tài khoản";
             this.tpAccount.UseVisualStyleBackColor = true;
@@ -635,6 +640,7 @@
             this.btnAddAccount.TabIndex = 26;
             this.btnAddAccount.Text = "Thêm";
             this.btnAddAccount.UseVisualStyleBackColor = true;
+            this.btnAddAccount.Click += new System.EventHandler(this.btnAddAccount_Click);
             // 
             // btnUpdateAccount
             // 
@@ -645,6 +651,7 @@
             this.btnUpdateAccount.TabIndex = 28;
             this.btnUpdateAccount.Text = "Sửa";
             this.btnUpdateAccount.UseVisualStyleBackColor = true;
+            this.btnUpdateAccount.Click += new System.EventHandler(this.btnUpdateAccount_Click);
             // 
             // btnDeleteAccount
             // 
@@ -655,10 +662,14 @@
             this.btnDeleteAccount.TabIndex = 27;
             this.btnDeleteAccount.Text = "Xóa";
             this.btnDeleteAccount.UseVisualStyleBackColor = true;
+            this.btnDeleteAccount.Click += new System.EventHandler(this.btnDeleteAccount_Click);
             // 
             // cmbAccountType
             // 
             this.cmbAccountType.FormattingEnabled = true;
+            this.cmbAccountType.Items.AddRange(new object[] {
+            "1",
+            "0"});
             this.cmbAccountType.Location = new System.Drawing.Point(183, 330);
             this.cmbAccountType.Name = "cmbAccountType";
             this.cmbAccountType.Size = new System.Drawing.Size(221, 24);
@@ -734,7 +745,7 @@
             this.tpBill.Location = new System.Drawing.Point(4, 25);
             this.tpBill.Name = "tpBill";
             this.tpBill.Padding = new System.Windows.Forms.Padding(3);
-            this.tpBill.Size = new System.Drawing.Size(991, 534);
+            this.tpBill.Size = new System.Drawing.Size(988, 529);
             this.tpBill.TabIndex = 4;
             this.tpBill.Text = "Doanh thu";
             this.tpBill.UseVisualStyleBackColor = true;
@@ -816,26 +827,26 @@
             this.dgvBill.Size = new System.Drawing.Size(976, 455);
             this.dgvBill.TabIndex = 0;
             // 
-            // button1
+            // tabPage1
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(222, 178);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 31);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "Tìm";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(988, 529);
+            this.tabPage1.TabIndex = 5;
+            this.tabPage1.Text = "Report Doanh thu";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // fAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(999, 563);
+            this.ClientSize = new System.Drawing.Size(996, 558);
             this.Controls.Add(this.tabControl1);
             this.Name = "fAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin";
+            ((System.ComponentModel.ISupportInitialize)(this.USP_GetListBillByDateForReportBindingSource)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tpMenu.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
@@ -913,8 +924,6 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.DataGridView dgvCategory;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.ComboBox cbStatus;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button btnAddTable;
         private System.Windows.Forms.Button btnUpdateTable;
         private System.Windows.Forms.Button btnDeleteTable;
@@ -940,5 +949,17 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.BindingSource USP_GetListBillByDateForReportBindingSource;
+       // private QuanLyQuanAnDataSet QuanLyQuanAnDataSet;
+        //private QuanLyQuanAnDataSetTableAdapters.USP_GetListBillByDateForReportTableAdapter USP_GetListBillByDateForReportTableAdapter;
+        private System.Windows.Forms.TabPage tabPage1;
+      //  private QuanLyQuanAnDataSet QuanLyQuanAnDataSet;
+      //  private QuanLyQuanAnDataSetTableAdapters.USP_GetListBillByDateForReportTableAdapter USP_GetListBillByDateForReportTableAdapter;
+        //private //QuanLyQuanAnDataSet QuanLyQuanAnDataSet;
+        //private QuanLyQuanAnDataSetTableAdapters.USP_GetListBillByDateForReportTableAdapter USP_GetListBillByDateForReportTableAdapter;
+        //private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        //private System.Windows.Forms.BindingSource uSPGetListBillByDateForReportBindingSource;
+        //private //QuanLyQuanAnDataSet1 quanLyQuanAnDataSet1;
+        //private //QuanLyQuanAnDataSet1TableAdapters.USP_GetListBillByDateForReportTableAdapter uSP_GetListBillByDateForReportTableAdapter1;
     }
 }

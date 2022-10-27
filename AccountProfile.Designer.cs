@@ -155,7 +155,6 @@
             this.txbUserName.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbUserName.Location = new System.Drawing.Point(623, 281);
             this.txbUserName.Name = "txbUserName";
-            this.txbUserName.ReadOnly = true;
             this.txbUserName.Size = new System.Drawing.Size(192, 26);
             this.txbUserName.TabIndex = 13;
             // 

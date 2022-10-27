@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using QuanLyQuanCafe.DAO;
+
 
 namespace QuanLyQuanAn_FINAL.DAO
 {
@@ -97,9 +97,6 @@ namespace QuanLyQuanAn_FINAL.DAO
                 totalPrice += item.TotalPrice;
                 lsvBill.Items.Add(lsvItem);
             }
-            //CultureInfo culture = new CultureInfo("vi-VN");
-
-            //Thread.CurrentThread.CurrentCulture = culture;
 
             textBox1.Text = totalPrice.ToString();
 
@@ -135,12 +132,14 @@ namespace QuanLyQuanAn_FINAL.DAO
 
         void f_UpdateAccount(object sender, AccountEvent e)
         {
-            thôngTinTàiKhoảnToolStripMenuItem.Text = "Thông tin tài khoản (" + e.Acc.DisplayName + ")";
+            thôngTinTàiKhoảnToolStripMenuItem.Text = "" + e.Acc.DisplayName + "";
         }
 
         private void adminToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            
             fAdmin f = new fAdmin();
+            f.loginAccount = LoginAccount;
             f.InsertFood += F_InsertFood;
             f.DeleteFood += F_DeleteFood;
             f.UpdateFood += F_UpdateFood;
@@ -258,6 +257,9 @@ namespace QuanLyQuanAn_FINAL.DAO
             }
         }
 
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
 
+        }
     }
 }

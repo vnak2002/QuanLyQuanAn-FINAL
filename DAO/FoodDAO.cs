@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuanLyQuanCafe.DAO
+namespace QuanLyQuanAn_FINAL.DAO
 {
     public class FoodDAO
     {
